@@ -6,6 +6,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouteModule } from './route.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
 import { GoalListComponent } from './components/goal-list/goal-list.component';
@@ -37,7 +38,8 @@ import { ConfirmationDialogComponent } from './components/confirmation-dialog/co
 		RouteModule,
 		FormsModule,
 		HttpClientModule,
-		ReactiveFormsModule
+		ReactiveFormsModule,
+		ChartsModule
 	],
 	providers: [GoalService, GoalDetailsResolver],
 	bootstrap: [AppComponent]

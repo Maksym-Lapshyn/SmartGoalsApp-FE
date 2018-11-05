@@ -1,2 +1,9 @@
 <app-goal-table (goalDeleted)="onGoalDeleted($event);"></app-goal-table>
-<button mat-button color="primary" (click)="createGoal();"><mat-icon>add</mat-icon>Add new goal</button>
+<button mat-button color="primary" (click)="createGoal();">
+	<mat-icon>add</mat-icon>Add new goal
+</button>
+<div style="display: block">
+	<canvas baseChart [chartType]="'line'" [datasets]="chartData" [labels]="chartLabels" [options]="chartOptions" [legend]="true"
+	 (chartClick)="onChartClick($event)">
+	</canvas>
+</div>

@@ -12,12 +12,33 @@ import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation
 	styleUrls: ['./goal-list.component.css']
 })
 export class GoalListComponent implements OnInit {
+
 	goals: Observable<Goal[]>;
+
+	chartOptions = {
+		responsive: true,
+		title: {
+			display: true,
+			text: 'You goal activity'
+		}
+	};
+
+	chartData = [
+		{ data: [330, 600, 260, 700], label: 'Account A' },
+		{ data: [120, 455, 100, 340], label: 'Account B' },
+		{ data: [45, 67, 800, 500], label: 'Account C' }
+	];
+
+	chartLabels = ['January', 'February', 'Mars', 'April'];
 
 	constructor(private goalService: GoalService, private dialog: MatDialog) { }
 
 	ngOnInit() {
 		this.goals = this.goalService.goals$;
+	}
+
+	onChartClick(event) {
+		console.log(event);
 	}
 
 	createGoal() {
