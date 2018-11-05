@@ -12,6 +12,6 @@ jobs:
       - save_cache:
           key: AngularCircleCI-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
-            - "node_modules"
-      #- run: xvfb-run -a npm run test -- --single-run --no-progress --browser=ChromeNoSandbox
+			- "node_modules"
+      - run: npm install -g @angular/cli
       - run: ng build --prod
