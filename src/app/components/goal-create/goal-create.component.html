@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>Create new goal</h2>
+
+<mat-dialog-content>
+	<form [formGroup]="goalForm">
+		<mat-form-field floatLabel class="full-with-field">
+			<input matInput placeholder="Name" required formControlName="name" type="text">
+		</mat-form-field>
+		<mat-form-field floatLabel class="full-with-field">
+			<textarea matInput placeholder="Description" required formControlName="description" cdkTextareaAutosize></textarea>
+		</mat-form-field>
+		<div class="two-part-container">
+			<mat-form-field class="date-field">
+				<input matInput [matDatepicker]="startDatePicker" required placeholder="Start date" formControlName="startDate">
+				<mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+				<mat-datepicker touchUi="true" #startDatePicker></mat-datepicker>
+			</mat-form-field>
+			<mat-form-field class="date-field">
+				<input matInput [matDatepicker]="endDatePicker" required placeholder="End date" formControlName="endDate">
+				<mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+				<mat-datepicker touchUi="true" #endDatePicker></mat-datepicker>
+			</mat-form-field>
+		</div>
+	</form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+	<button mat-raised-button mat-dialog-close>Close</button>
+	<button mat-raised-button color="primary" type="submit" (click)="create();">Create</button>
+</mat-dialog-actions>

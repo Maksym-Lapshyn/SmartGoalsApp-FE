@@ -1,0 +1,12 @@
+.full-with-field {
+    width: 100%;
+}
+
+.date-field {
+	width: 45%;
+}
+
+.two-part-container {
+	display: flex;
+    justify-content: space-between;
+}
