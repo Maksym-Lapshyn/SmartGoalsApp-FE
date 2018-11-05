@@ -14,5 +14,4 @@ jobs:
           paths:
             - "node_modules"
       - run: sudo npm install -g @angular/cli
-      - run: ng lint
       - run: ng build --prod
