@@ -16,11 +16,11 @@ jobs:
           paths:
             - "node_modules"
       - run:
-        name: Install Angular CLI
-        command: sudo npm install -g @angular/cli
+          name: Install Angular CLI
+          command: sudo npm install -g @angular/cli
       - run:
-        name: Build
-        command: ng build --prod
+          name: Build
+          command: ng build --prod
       - run:
           name: Export Tag
           command: |
