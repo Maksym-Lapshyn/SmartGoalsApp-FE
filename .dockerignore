@@ -1,2 +1,5 @@
-node_modules
+.dockerignore
+package.lock.json
 .git
+*Dockerfile*
+node_modules

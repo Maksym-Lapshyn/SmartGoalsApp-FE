@@ -1,0 +1,27 @@
+FROM node:alpine as build-stage
+
+RUN mkdir -p /app
+
+WORKDIR /app
+
+COPY package.json /app/
+
+RUN cd /app && npm install
+
+RUN cd /app && npm install -g @angular/cli
+
+COPY . /app
+
+RUN cd /app && ng build
+
+FROM nginx:alpine
+
+## Remove default nginx website
+RUN rm -rf /usr/share/nginx/html/*
+
+## From 'builder' copy website to default nginx public folder
+COPY --from=build-stage /app/dist /usr/share/nginx/html
+
+EXPOSE 4200
+
+CMD ["nginx", "-g", "daemon off;"]
